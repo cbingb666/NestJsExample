@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+
+  mongo:
+    # 镜像名
+    image: mongo
+    # 暴露端口
+    ports:
+      - ${MONGO_PORT}:27017
+    environment:
+      # 初始root用户名
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      # 初始root密码
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASS}
+    # 挂载磁盘卷，目的为了数据库数据持久化
+    volumes:
+      - ${MONGO_VOLUMES}:/data/db

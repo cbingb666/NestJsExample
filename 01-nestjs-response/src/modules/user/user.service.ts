@@ -55,11 +55,11 @@ export class UserService {
    * 用户列表
    */
   list() {
-    return Api.pagerOk({
+    return {
       list: this.dbUsers,
       page: 1,
       limit: 10,
       total: this.dbUsers.length,
-    });
+    };
   }
 }
